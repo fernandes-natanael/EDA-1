@@ -1,4 +1,7 @@
-# Guia sobre alocacao dinamica em c
+# Conteudos EDA-1
+## Alocacao dinamica em c
+
+
 
 Bibliotecas que podem ser utilizadas:
 
@@ -19,5 +22,8 @@ int * inteiro = malloc(MAX * sizeof(int)); // para ponteiros que apontam para ve
 int ** inteiro; // ponteiro bidimensional
 
 
+## Estruturas de ordenacao
+
+## Estuturas de dados FIFO e LIFO
 
 Matriz esparca// estudar novamente ;-;
