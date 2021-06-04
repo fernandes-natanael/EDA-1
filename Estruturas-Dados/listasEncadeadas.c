@@ -7,13 +7,17 @@ typedef struct no{// estrutura da lista
 }no;
 // funcoes auxiliares
 void menu();
+void menuBuscado();
 int lerInteiro();
 // funcoes do programa
 no* cria_lista();
 int insere_no_comeco(no* le, int valor );
 int remove_no_comeco(no* le, int *temporario);
-no* busca_primeiro_elemento(no*le, int elemento);
 void imprime_lista(no* le);
+no* busca_primeiro_elemento(no*le, int elemento);
+int insere_especifico(no*le, int valor);
+void removo_especifico(no*le, int valor);
+int acaoBuscado(no* le);
 
 
 
@@ -45,10 +49,13 @@ int main(){
         case 4:
             printf("elemento a buscar: ");
             buscado = busca_primeiro_elemento(le, lerInteiro());
+            if(buscado != NULL)
+                if(!acaoBuscado(buscado))
+                    printf("Lista nao foi alterada");
+
             break;
         default:
             printf("Opcao invalida! Insira novamente");
-            break;
         }
         
         menu();
@@ -65,7 +72,15 @@ void menu(){
     printf("1.Insere no comeco\n");
     printf("2.Remove no comeco\n");
     printf("3.Imprime lista\n");
-    printf("4.Buscar primeiro elemento\n");
+    printf("4.Buscar elemento\n");
+    printf("Opcao: ");
+}
+
+void menuBuscado(){
+    printf("\n\n");
+    printf("1.Insere apos o buscado\n");
+    printf("2.Remove buscado\n");
+    printf("3.Nao fazer nada\n");
     printf("Opcao: ");
 }
 
@@ -123,3 +138,35 @@ void imprime_lista(no* le){
     }
     printf("NULL\n");
 }// Complexidade O(n)
+
+int insere_especifico(no*le, int valor){
+
+}// O(1) melhor caso e no pior O(n)
+
+int acaoBuscado(no* le){
+    int opcao;
+    do{
+        menuBuscado();
+        scanf("%d", &opcao);
+
+        switch (opcao){
+        case 1:
+            printf("insira elemento: ");
+            if(insere_no_comeco(le, lerInteiro()))
+                printf("Inserido com sucesso!\n");
+            else
+                printf("Erro inesperado, valor nao foi inserido\n");
+            break;
+        case 2:
+            printf("ainda n foi feito\n");
+            break;
+        case 3:
+            printf("buscado nao fara nada\n");
+        default:
+            printf("Opcao invalida");
+        }
+    }while(opcao < 1 &&  opcao > 3);
+    
+    
+
+}
