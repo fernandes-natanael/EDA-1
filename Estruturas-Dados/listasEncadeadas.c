@@ -17,7 +17,7 @@ void imprime_lista(no* le);
 no* busca_primeiro_elemento(no*le, int elemento);
 int insere_especifico(no*le, int valor);
 void removo_especifico(no*le, int valor);
-int acaoBuscado(no* le);
+int acaoBuscado(no* le, int * temp);
 
 
 
@@ -42,6 +42,7 @@ int main(){
                 printf("%d foi removido com sucesso!", *temporario);
             else
                 printf("Cuidado! Lista vazia.");
+            printf("temporario=%d\n", *temporario);
             break;
         case 3:
             imprime_lista(le);
@@ -50,9 +51,9 @@ int main(){
             printf("elemento a buscar: ");
             buscado = busca_primeiro_elemento(le, lerInteiro());
             if(buscado != NULL)
-                if(!acaoBuscado(buscado))
+                if(!acaoBuscado(buscado, temporario))
                     printf("Lista nao foi alterada");
-
+                printf("temporario=%d\n", *temporario);
             break;
         default:
             printf("Opcao invalida! Insira novamente");
@@ -117,18 +118,6 @@ int remove_no_comeco(no* le, int *temporario){
     return 1;
 }// Complexidade O(1)
 
-no* busca_primeiro_elemento(no*le, int elemento){
-    le = le->prox;
-    for(int i = 0 ; le != NULL; i++){
-        if(le->dado == elemento){
-            printf("elemento encontrado na posicao %d\n", i);
-            return le;
-        }
-        le = le->prox;
-    }
-    printf("Elemento nao existe na lista");
-    return NULL;
-}// O(1) melhor dos casos e no pior dos casos O(n)
 
 void imprime_lista(no* le){
     le = le->prox;
@@ -139,11 +128,19 @@ void imprime_lista(no* le){
     printf("NULL\n");
 }// Complexidade O(n)
 
-int insere_especifico(no*le, int valor){
+no* busca_primeiro_elemento(no*le, int elemento){
+    for(int i = 0 ; le != NULL; i++){
+        if(le->prox->dado == elemento){
+            printf("elemento encontrado na posicao %d\n", i);
+            return le;
+        }
+        le = le->prox;
+    }
+    printf("Elemento nao existe na lista");
+    return NULL;
+}// O(1) melhor dos casos e no pior dos casos O(n)
 
-}// O(1) melhor caso e no pior O(n)
-
-int acaoBuscado(no* le){
+int acaoBuscado(no* le, int *temp){
     int opcao;
     do{
         menuBuscado();
@@ -152,13 +149,16 @@ int acaoBuscado(no* le){
         switch (opcao){
         case 1:
             printf("insira elemento: ");
-            if(insere_no_comeco(le, lerInteiro()))
+            if(insere_no_comeco(le->prox, lerInteiro()))
                 printf("Inserido com sucesso!\n");
             else
                 printf("Erro inesperado, valor nao foi inserido\n");
             break;
         case 2:
-            printf("ainda n foi feito\n");
+            if(remove_no_comeco(le, temp))
+                printf("Removido com sucesso!\n");
+            else
+                printf("Nao foi possivel remover");
             break;
         case 3:
             printf("buscado nao fara nada\n");
@@ -166,7 +166,4 @@ int acaoBuscado(no* le){
             printf("Opcao invalida");
         }
     }while(opcao < 1 &&  opcao > 3);
-    
-    
-
-}
+}// Complexidade O(1)
