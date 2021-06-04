@@ -18,6 +18,7 @@ no* busca_primeiro_elemento(no*le, int elemento);
 int insere_especifico(no*le, int valor);
 void removo_especifico(no*le, int valor);
 int acaoBuscado(no* le, int * temp);
+void destroi_lista(no* le);
 
 
 
@@ -42,7 +43,6 @@ int main(){
                 printf("%d foi removido com sucesso!", *temporario);
             else
                 printf("Cuidado! Lista vazia.");
-            printf("temporario=%d\n", *temporario);
             break;
         case 3:
             imprime_lista(le);
@@ -61,10 +61,11 @@ int main(){
         
         menu();
     }
-    system("clear");
-    printf("Tchau\n");
     free(temporario);
     free(buscado);
+    destroi_lista(le);
+    system("clear");
+    printf("Tchau\n");
     return 0;
 }
 
@@ -167,3 +168,13 @@ int acaoBuscado(no* le, int *temp){
         }
     }while(opcao < 1 &&  opcao > 3);
 }// Complexidade O(1)
+
+void destroi_lista(no* le){
+    le = le->prox;
+    no* lixo = malloc(sizeof(no));
+    while(le != NULL){
+        lixo = le;
+        le = le->prox;
+        free(lixo);
+    }
+}

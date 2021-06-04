@@ -44,7 +44,6 @@ int main(){
             break;
         default:
             printf("Opcao invalida insira novamente");
-            break;
         }
         menu();
     }
@@ -65,7 +64,7 @@ void menu(){
 
 int lerInteiro(){
     int valor;
-    printf("insira valor:");
+    printf("insira inteiro:");
     scanf("%d", &valor);
     return valor;
 }
