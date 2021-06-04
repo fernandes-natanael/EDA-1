@@ -1,4 +1,5 @@
 # Conteudos EDA-1
+### **Importante** EOF no linux 'CNTRL + D'
 ## Alocacao dinamica em c
 
 
@@ -21,9 +22,11 @@ int * inteiro = malloc(MAX * sizeof(int)); // para ponteiros que apontam para ve
 
 int ** inteiro; // ponteiro bidimensional
 
+## Notacao Big O
 
 ## Estruturas de ordenacao
 
 ## Estuturas de dados FIFO e LIFO
+
 
 Matriz esparca// estudar novamente ;-;
