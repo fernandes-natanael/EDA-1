@@ -3,7 +3,7 @@
 float potenciacao(int num, int exp){
     if(exp == 0)
         return 1;
-    else if(exp >0)
+    else if(exp > 0)
         return num * potenciacao(num, exp-1);
     else
         return (1.0/num) * potenciacao(num, exp+1);
