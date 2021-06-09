@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/*
+/* TLE
     void regua(int n){
     if( n == 1){ //caso base
         printf(".-\n");
@@ -24,6 +24,25 @@ void mark(int h){// serve para desenhar a marca
     printf("\n");
 }
 
+void rule2(int h){ 
+    if (h > 0) { 
+        rule2(h-1);
+        mark(h);
+        rule2(h-1);
+    }
+}
+
+int main(){
+    int n;
+
+    scanf("%d", &n);
+    //Rule(n);
+    rule2(n);
+    return 0;
+}
+
+/* Web resolution
+
 void rule(int p, int r, int h){ 
     int m = (p + r)/2;
     if (h > 0) { 
@@ -43,12 +62,5 @@ void Rule(int n) {// serve para iniciar a regua
     rule(0, p, n);
 }
 
-int main(){
-    int n;
 
-    scanf("%d", &n);
-    Rule(n);
-
-    return 0;
-}
-
+*/
