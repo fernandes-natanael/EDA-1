@@ -1,58 +1,53 @@
 #include <stdio.h>
-
-#define MAX_NAME 80
-#define MAX_STRING 240
-
+#include <stdlib.h>
 struct tipoFiliacao{
-    char nome[MAX_NAME];
-    char nomeMae[MAX_NAME];
-    char nomePai[MAX_NAME];
+    char nome[80];
+    char nomeMae[80];
+    char nomePai[80];
 };
 
-struct tipoFiliacao separaLinhaCSV(char linha[MAX_STRING]);
-/*
+int setaNome(char linha[240], char nome[80], int inicio );
+struct tipoFiliacao separaLinhaCSV(char linha[240]);
+
+
 int main(){
-    char str[MAX_STRING];
+    char str[240];
     scanf(" %[^\n]", str);
-    struct tipoFiliacao family = separaLinhaCSV(str);;
+    struct tipoFiliacao family = separaLinhaCSV(str);
     printf("filho\n%s\n", family.nome);
     printf("mae\n%s\n", family.nomeMae);
     printf("pai\n%s\n", family.nomePai);
+
+    for(int i = 0 ; family.nome[i] != '\0'; i++)
+        if(family.nome[i+1] == '\0')
+            printf("filho ta correto\n");
+
+    for(int i = 0 ; family.nomeMae[i] != '\0'; i++)
+        if(family.nomeMae[i+1] == '\0')
+            printf("Mae ta correto\n");
+
+    for(int i = 0 ; family.nomePai[i] != '\0'; i++)
+        if(family.nomePai[i+1] == '\0')
+            printf("Pai ta correto\n");
     return 0;
 }
-*/
 
-struct tipoFiliacao separaLinhaCSV(char linha[]){
-    int select = 0;
-    int i,j;
-    struct tipoFiliacao family; 
-
-    for(i = 0, j = 0; linha[i] != '\0'; i++, j++){
-        if(linha[i] == ','){
-            if(linha[i+1] != ','){
-                if(select == 0)
-                    family.nome[j] = '\0';    
-                else if(select == 1)
-                    family.nomeMae[j] = '\0'; 
-                select += 1;
-                i += 1;
-            }else{
-                select = 2;
-                family.nome[j] = '\0'; 
-                family.nomeMae[0] = '\0'; 
-                i += 2;
-            }
-            j = 0;
-        }
-
-        if(select == 0){
-            family.nome[j] = linha[i];
-        }else if(select == 1){
-            family.nomeMae[j] = linha[i];
-        }else if(select == 2){
-            family.nomePai[j] = linha[i];
-        }
+int setaNome(char linha[], char nome[], int inicio ){
+    int i = 0, j = inicio;
+    while(linha[j] != '\0' && linha[j] != ','){
+        nome[i++] = linha[j++];
     }
-    family.nomePai[j] = '\0';
+    nome[i] = '\0';
+
+    return j + 1;
+
+}
+struct tipoFiliacao separaLinhaCSV(char linha[]){
+    struct tipoFiliacao family;
+    int inicio = 0;
+    inicio = setaNome(linha, family.nome, inicio);
+    inicio = setaNome(linha, family.nomeMae, inicio);
+    inicio = setaNome(linha, family.nomePai, inicio);
     return family;
 }
+
