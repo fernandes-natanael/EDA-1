@@ -1,22 +1,19 @@
 #include <stdio.h>
-#include <math.h>
 
 
-double potenciacao(int num, int exp){
+double potenciacao(int base,int exp){
     if(exp == 0)
         return 1;
-    else if(exp > 0)
-        return num * potenciacao(num, exp-1);
-    else
-        return (1.0/num) * potenciacao(num, exp+1);
+    else if (exp < 0 )
+        return potenciacao(base, exp + 1)/base;
+    return base * potenciacao(base, exp-1);
 }
+
 
 
 int main(){
     int a, b;
     scanf("%d%d", &a, &b);
-
-    printf("pow: %g\n", pow(a,b));
 
     if(a == 0  && b < 0 )
         printf("indefinido\n");
