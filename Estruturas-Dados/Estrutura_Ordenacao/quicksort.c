@@ -6,30 +6,32 @@ typedef struct lista{
     int MAX, QNT ;
 }lista;
 
-
-
-void quicksort(int *vetor, int inicio, int final ){
-    int i = inicio , j = final , pivo, auxiliar;
-    pivo = vetor[ ( inicio + final ) / 2 ];
+void quicksort(int vetor[], int inicio, int final ){
+    int i = inicio , 
+        j = final-1 , 
+        pivo, auxiliar;
+    pivo = vetor[ ( inicio+final )/2 ];
     while( i <= j){
-        while(vetor[i] < pivo)
-            i += 1 ;
-        while(vetor[j] > pivo)
-            j -= 1;
+        while(vetor[i] < pivo && i < final)
+            i++;
+        while(vetor[j] > pivo && j > inicio)
+            j--;
         if( i <= j ){
             auxiliar = vetor[i];
             vetor[i] = vetor[j];
             vetor[j] = auxiliar;
-            i += 1;
-            j += 1;
+            i++;
+            j--;
         }
     }
 
     if(inicio < j)
-        quicksort(vetor, inicio , j);
-    else
+        quicksort(vetor, inicio , j+1 );
+    if(final > i)
         quicksort(vetor, i, final);
 }
+
+
 
 void menu(){
     printf("\n\n");
@@ -49,8 +51,11 @@ int ler_inteiro(){
 
 int realoca_lista(lista * l){
     l->dados = realloc( l->dados, 2*l->MAX * sizeof(int));
-    if(l->dados != NULL)
+    if(l->dados != NULL){
+        l->MAX *= 2;
         return 1;
+    }
+        
     return 0;
 }
 
@@ -62,7 +67,9 @@ int insere_lista(lista *l, int valor){
 }
 
 void auto_preencher(lista *l){
-    printf("Funcao ainda n foi feita");
+    while(l->QNT < l->MAX){
+        l->dados[l->QNT++] = random() % 100;
+    }
 }
 
 void mostra_lista(lista *l){
@@ -114,6 +121,9 @@ int main(){
         }
         menu();
     }
+    
     destruir_lista(l);
+    system("clear");
+    printf("Sistema Finalizado\n");
     return 0;
 }
