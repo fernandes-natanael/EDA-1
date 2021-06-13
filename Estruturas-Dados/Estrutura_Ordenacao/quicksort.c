@@ -33,10 +33,10 @@ void quicksort(int *vetor, int inicio, int final ){
 
 void menu(){
     printf("\n\n");
-    printf("1. inserir na lista");
-    printf("2. auto preencher lista");
-    printf("3. Ordenar lista");
-    printf("1. mostrar lista");
+    printf("1. inserir na lista\n");
+    printf("2. auto preencher lista\n");
+    printf("3. Ordenar lista\n");
+    printf("4. mostrar lista\n");
     printf("Opcao: ");
 }
 
@@ -61,6 +61,10 @@ int insere_lista(lista *l, int valor){
     l->dados[l->QNT++] = valor;
 }
 
+void auto_preencher(lista *l){
+    printf("Funcao ainda n foi feita");
+}
+
 void mostra_lista(lista *l){
     for(int i = 0 ; i < l->QNT ; i++){
         printf("%d", l->dados[i]);
@@ -79,6 +83,11 @@ lista * cria_lista(){
     return l;
 }
 
+void destruir_lista(lista* l){
+    free(l->dados);
+    free(l);
+}
+
 int main(){
     lista *l = cria_lista();
     int option;
@@ -92,19 +101,19 @@ int main(){
             insere_lista(l, ler_inteiro());            
             break;
         case 2:
-            
+            auto_preencher(l);
             break;
         case 3:
             quicksort(l->dados, 0, l->QNT);
             break;
         case 4:
-            mostrar_lista(l);
+            mostra_lista(l);
             break;
         default:
             printf("Opcao Invalida!");
-            break;
         }
+        menu();
     }
-
+    destruir_lista(l);
     return 0;
 }
