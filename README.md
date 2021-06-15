@@ -48,61 +48,13 @@ Como o próprio nome diz serve para realocar o ponteiro, ou seja, quando a  quan
 ## Questões da lista
 ### ***OBSERVAÇÃO***: acabei perdendo algumas questões, pois formatei o computador e esqueci de fazer um backup das questões, então refiz as questões que estavam disponíveis no listão das férias.
 ### Hello World
+
 Apenas mostrar "Ola Mundo!" na tela
 
 ### EOF
-#### Entrada
----
-Ler N inteiros até que a leitura retorne EOF.
-#### Saida
----
-retornar quantos inteiros foram lidos.
-#### Exempo de entrada
----
-```
-    2 7 10 32
-```
-#### Exempo de saída
----
-```
-    4
-```
 ### Maior entre 4 números
 
-#### Entrada
----
-Ler 4 inteiros.
-#### Saida
----
-retornar o valor do maior inteiro entre os 4 .
-#### Exempo de entrada
----
-```
-    5 12 24 1
-```
-#### Exempo de saída
----
-```
-    24
-```
 ### Maior entre N números
-
-#### Entrada
----
-Ler N inteiros até que a leitura retorne EOF.
-#### Saida
----
-retornar o valor do maior inteiro entre os N lidos .
-#### Exempo de entrada
----
-```
-    5 12 24 1 13 25 42 34 12
-```
-#### Exempo de saída
----
-```
-    42
-```
 
 ### Conta de água
 
@@ -133,74 +85,16 @@ retornar o valor do maior inteiro entre os N lidos .
 </tbody>
 </table>
 
-#### Entrada
----
-Ler um inteiro que representa a quantidade em m³.
-#### Saida
----
-Retornar o valor final da conta.
-#### Exempo de entrada
----
-```
-    68
-```
-#### Exempo de saída
----
-```
-    103
-```
 ### Pirâmides 1
-
-#### Exempo de entrada
----
-```
-    8
-```
-#### Exempo de saída
----
-```
-    01
-    02 02
-    03 03 03
-    04 04 04 04
-    05 05 05 05 05
-    06 06 06 06 06 06
-    07 07 07 07 07 07 07
-    08 08 08 08 08 08 08 08
-
-    01
-    01 02
-    01 02 03
-    01 02 03 04
-    01 02 03 04 05
-    01 02 03 04 05 06
-    01 02 03 04 05 06 07
-    01 02 03 04 05 06 07 08
-```
 
 ### Pirâmides 2
 
-#### Exempo de entrada
----
-```
-    8
-```
-#### Exempo de saída
----
-```
-           *
-          ***
-         *****
-        *******
-       *********
-      ***********
-     *************
-    ***************
-```
 ### Par ou Ímpar
 
+[Enunciado](https://br.spoj.com/problems/PAR.pdf)
 ### Calculando
 
+[Enunciado](https://br.spoj.com/problems/CALCULA.pdf)
 ### Filiação
 
 ### Potenciação - RECURSIVA

@@ -1,7 +1,14 @@
 #include <stdio.h>
 
+void instruction(){
+    printf("Intruction\n");
+    printf("\nInsert a integer and will create two pyramids\n\n");
+}
+
 int main(){
     int tam;
+    instruction();
+    printf("insert the size: ");
     scanf("%d", &tam);
     for(int i = 1; i <= tam ; i++){
         for(int k = 0 ; k < i ; k++)
