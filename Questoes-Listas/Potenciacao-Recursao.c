@@ -13,6 +13,7 @@ double potenciacao(int base,int exp){
 
 int main(){
     int a, b;
+    printf("Enter base and expoent: ");
     scanf("%d%d", &a, &b);
 
     if(a == 0  && b <= 0 )

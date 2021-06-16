@@ -15,6 +15,7 @@ ull int sum (ull int num){
 
 int main(){
     ull int num ; 
+    printf("The program will count how many 7 exists in the integer.\n\nEnter the integer: ");
     scanf("%llu",&num);
     //printf("%d\n", num/10);
     printf("%llu\n", sum(num));

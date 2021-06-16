@@ -50,6 +50,9 @@ int busca_binaria(int lista[], int n, int buscado){ // n == quantidade de itens 
 
 int main(){
     int casas, encomendas;
+    printf("The program will calculate how many steps the postman needs to deliver all packages.\n");
+    printf("The postman will always start from the house whit the lowest number\n\n");
+    printf("Enter the number of house and packages:");
     scanf("%d%d", &casas, &encomendas);
     int *v_casas = malloc(casas * sizeof(int));
     int *v_posicao = malloc(casas * sizeof(int));
@@ -57,15 +60,18 @@ int main(){
     int *v_percurso = malloc(encomendas * sizeof(int));
 
     for(int i = 0 ; i < casas; i++){
+        printf("Enter the number of the house %d: ", i+1);
         scanf("%d", &v_casas[i]);
         v_posicao[i] = i;
     }
 
-    for(int i = 0 ; i < encomendas; i++)
+    for(int i = 0 ; i < encomendas; i++){
+        printf("Enter the number where the package %d will be delivered: ", i+1);
         scanf("%d", &v_encomendas[i]);
+    }
+        
 
     ordenar(v_casas, v_posicao, 0, casas);
-    
     int percurso;
     for(int i = 0 ; i < encomendas ; i++){
        percurso = busca_binaria(v_casas, casas, v_encomendas[i]);
@@ -77,6 +83,6 @@ int main(){
         comeco = v_percurso[i];
     }
 
-    printf("%d\n", tempo);
+    printf("The postman needed %d steps to deliver all the packages\n", tempo);
     return 0;
 }

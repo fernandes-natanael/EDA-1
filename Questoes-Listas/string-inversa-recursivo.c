@@ -12,7 +12,7 @@ void inverso(char str[], int i){
 int main(){
     const int MAX = 500;
     char str[MAX];
-
+    printf("Enter the string that will be reversed");
     scanf("%s", str);
     inverso(str, 0); 
     return 0;

@@ -31,15 +31,17 @@ void shell_sort(int v[], int left, int right){
 
 int main(){
     int size;
+    printf("insert the list size: ");
     scanf("%d", &size);
     int *vetor = malloc(size*sizeof(int));
 
     for(int i = 0 ; i < size ; i++){
+        printf("element(%d): ", i);
         scanf("%d",&vetor[i]);
     }
 
     shell_sort(vetor, 0, size-1);
-
+    printf("list sorted by shellsort: ");
     for(int i = 0; i < size ; i++){
         printf("%d", vetor[i]);
         if(i < size-1)

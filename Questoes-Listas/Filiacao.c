@@ -9,26 +9,17 @@ struct tipoFiliacao{
 int setaNome(char linha[240], char nome[80], int inicio );
 struct tipoFiliacao separaLinhaCSV(char linha[240]);
 
+void instruction();
 
 int main(){
     char str[240];
+    instruction();
+    printf("insert the CSV string: ");
     scanf(" %[^\n]", str);
     struct tipoFiliacao family = separaLinhaCSV(str);
-    printf("filho\n%s\n", family.nome);
-    printf("mae\n%s\n", family.nomeMae);
-    printf("pai\n%s\n", family.nomePai);
-
-    for(int i = 0 ; family.nome[i] != '\0'; i++)
-        if(family.nome[i+1] == '\0')
-            printf("filho ta correto\n");
-
-    for(int i = 0 ; family.nomeMae[i] != '\0'; i++)
-        if(family.nomeMae[i+1] == '\0')
-            printf("Mae ta correto\n");
-
-    for(int i = 0 ; family.nomePai[i] != '\0'; i++)
-        if(family.nomePai[i+1] == '\0')
-            printf("Pai ta correto\n");
+    printf("son: %s\n", family.nome);
+    printf("mother: %s\n", family.nomeMae);
+    printf("father: %s\n", family.nomePai);
     return 0;
 }
 
@@ -51,3 +42,10 @@ struct tipoFiliacao separaLinhaCSV(char linha[]){
     return family;
 }
 
+void instruction(){
+    printf("Instruction\n\n");
+    printf("Enter a CSV with your name, your mother's name and your father's name.\n");
+    printf("Then the program will return a struct with the names.\n\n");
+    printf("Exemple IN:  Fagner Farias Castro Filho,, Fagner Farias Castro");
+    printf("Exemple OUT: son: Fagner Farias Castro Filho\nmother: \nfather: Fagner Farias Castro\n\n");
+}

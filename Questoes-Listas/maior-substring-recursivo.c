@@ -33,9 +33,21 @@ int subcadeia(char str[], char sub[], int i, int comeco, int tamanho){
 
 }
 
+void instruction(){
+    printf("Instruction\n");
+    printf("Insert string and substring, then the program will return the size\n");
+    printf("of appereance of substring  in string related with the first and last appereance.\n\n");
+    printf("Exemple IN:  xxxcatcowcatxxx\n");
+    printf("             cat\n");
+    printf("Exemple OUT: 9\n\n");
+}
+
 int main(){
     char str[MAX], sub[MAX];
+    instruction();
+    printf("insert the string: ");
     scanf(" %s", str);
+    printf("insert the substring: ");
     scanf(" %s", sub);
     // printf("str:%s\n", str);
     // printf("sub:%s\n", sub);

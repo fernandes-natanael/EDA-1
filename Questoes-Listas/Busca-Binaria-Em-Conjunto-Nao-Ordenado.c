@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ordenar(int vetor[], int posicao[],int inicio, int n){
+void ordenar(int vetor[], int posicao[],int inicio, int n){// quicksort
 	int i, j, pivo, auxiliar, auxiliarPosicao;
 
 	i = inicio;
@@ -47,14 +47,17 @@ int busca_binaria(int lista[], int n, int buscado){ // n == quantidade de itens 
     return -1; // retorna a posicao onde o valor se encontra
 }// Complexidade O(lg n )
 
+
 int main(){
     int N, M;
     int *vector_position, *vector_values;
+    printf("Enter the list size and how many searchs you will do:");
     scanf("%d%d", &N, &M);
 
     vector_values = malloc( N * sizeof(int));
     vector_position = malloc( N * sizeof(int));
     for(int i = 0; i < N ; i++){
+        printf("element(%d): ", i);
         scanf("%d", &vector_values[i]);
         vector_position[i] = i;
     }   
@@ -64,12 +67,13 @@ int main(){
     int buscado;
     for(int i = 0 ; i < M ; i++){
         int verificar;
+        printf("search %d: ", i+1);
         scanf("%d", &verificar);
         buscado = busca_binaria(vector_values, N, verificar);
         if(buscado != -1)
-            printf("%d\n", vector_position[buscado] );
+            printf("Exist in the position %d\n", vector_position[buscado] );
         else
-            printf("-1\n");
+            printf("Doesn't exist in the list\n");
     }  
 
     free(vector_position);

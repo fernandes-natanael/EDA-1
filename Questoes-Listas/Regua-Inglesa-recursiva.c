@@ -34,7 +34,7 @@ void rule2(int h){
 
 int main(){
     int n;
-
+    printf("Enter how many lines the ruler will have: ");
     scanf("%d", &n);
     //Rule(n);
     rule2(n);
